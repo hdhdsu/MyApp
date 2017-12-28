@@ -7,7 +7,7 @@ import rx.schedulers.Schedulers;
 /**
  *
  * 将一些重复的操作提出来，放到父类以免Loader 里每个接口都有重复代码
- * Created by zhouwei on 16/11/10.
+ * Created by lenghuo
  *
  */
 

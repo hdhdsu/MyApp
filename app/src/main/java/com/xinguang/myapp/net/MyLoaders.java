@@ -21,6 +21,7 @@ public class MyLoaders extends ObjectLoader {
     private MyServices mApiService;
 
     public MyLoaders() {
+        //接口的创建
         this.mApiService = RetrofitServiceManager.getInstance().create(MyServices.class);
     }
 

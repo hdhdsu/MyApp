@@ -11,7 +11,7 @@ import rx.subscriptions.CompositeSubscription;
 /**
  *
  * BaseActivity 中统一处理 Subscription . 防止内存泄漏
- * Created by zhouwei on 16/11/11.
+ * Created by lenghuo
  */
 
 public class BaseActivity extends AppCompatActivity {

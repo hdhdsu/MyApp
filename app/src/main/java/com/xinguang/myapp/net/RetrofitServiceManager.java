@@ -1,10 +1,13 @@
 package com.xinguang.myapp.net;
 
+import android.support.design.BuildConfig;
+
 import com.xinguang.myapp.common.Constants;
 
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -31,8 +34,17 @@ public class RetrofitServiceManager {
                 .addHeaderParams("userToken","1234343434dfdfd3434")
                 .addHeaderParams("userId","123445")
                 .build();
+
         builder.addInterceptor(commonInterceptor);
 
+        //日志拦截器
+//        if (BuildConfig.DEBUG) {
+            // Log信息拦截器
+//            HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
+//            loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+//            //设置 Debug Log 模式
+//            builder.addInterceptor(loggingInterceptor);
+//        }
 
         // 创建Retrofit
         mRetrofit = new Retrofit.Builder()

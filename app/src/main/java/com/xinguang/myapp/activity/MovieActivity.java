@@ -61,12 +61,14 @@ public class MovieActivity extends AppCompatActivity implements View.OnClickList
         mMovieLoader.getMovie(0,10).subscribe(new Action1<List<Movie>>() {
             @Override
             public void call(List<Movie> movies) {
+                //onNext
                 mMovieAdapter.setMovies(movies);
                 mMovieAdapter.notifyDataSetChanged();
             }
         }, new Action1<Throwable>() {
             @Override
             public void call(Throwable throwable) {
+                //onError
                 Log.e("TAG","error message:"+throwable.getMessage());
                 if(throwable instanceof Fault){
                     Fault fault = (Fault) throwable;

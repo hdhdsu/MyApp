@@ -14,7 +14,7 @@ import okhttp3.Response;
  * 拦截器
  *
  * 向请求头里添加公共参数
- * Created by zhouwei on 16/11/10.
+ * Created by lenghuo
  */
 
 public class HttpCommonInterceptor implements Interceptor {

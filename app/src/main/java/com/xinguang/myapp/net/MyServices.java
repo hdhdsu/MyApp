@@ -8,7 +8,7 @@ import retrofit2.http.Url;
 import rx.Observable;
 
 /**
- * 网络请求
+ * retrofit的接口
  * Created by 14912 on 2017/12/28.
  */
 public interface MyServices {

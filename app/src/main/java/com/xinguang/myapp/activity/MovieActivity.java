@@ -12,7 +12,7 @@ import android.view.View;
 import com.xinguang.myapp.R;
 import com.xinguang.myapp.adapter.MovieAdapter;
 import com.xinguang.myapp.model.Movie;
-import com.xinguang.myapp.net.Fault;
+import com.xinguang.myapp.net.ExceptionStatus;
 import com.xinguang.myapp.net.MyLoaders;
 
 import java.util.List;
@@ -70,8 +70,8 @@ public class MovieActivity extends AppCompatActivity implements View.OnClickList
             public void call(Throwable throwable) {
                 //onError
                 Log.e("TAG","error message:"+throwable.getMessage());
-                if(throwable instanceof Fault){
-                    Fault fault = (Fault) throwable;
+                if(throwable instanceof ExceptionStatus){
+                    ExceptionStatus fault = (ExceptionStatus) throwable;
                     if(fault.getErrorCode() == 404){
                         //错误处理
                     }else if(fault.getErrorCode() == 500){

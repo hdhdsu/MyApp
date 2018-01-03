@@ -12,6 +12,7 @@ import rx.Observable;
 import rx.functions.Func1;
 
 /**
+ * 网络请求业务
  * Created by 14912 on 2017/12/28.
  */
 

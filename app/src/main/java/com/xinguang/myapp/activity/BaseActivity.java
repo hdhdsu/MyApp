@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import com.xinguang.myapp.R;
 import com.xinguang.myapp.manager.AppActivityManager;
 
 import rx.Subscription;
@@ -100,9 +101,9 @@ public class BaseActivity extends FragmentActivity {
 
     public void startActivity(Class clazz) {
         Intent intent = new Intent(this, clazz);
-
         startActivity(intent);
     }
+    //这里还可以重载一个activity跳转动画
 
     public void startActivityForResult(Class clazz, int code) {
         Intent intent = new Intent(this, clazz);

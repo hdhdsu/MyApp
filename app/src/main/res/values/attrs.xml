@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TopGuideBar">
+        <attr name="title"></attr>
+        <attr name="lightMode" format="boolean"></attr>
+        <attr name="topBarMode" format="boolean"></attr>
+        <attr name="leftButtonVisible" format="boolean"></attr>
+        <attr name="rightButtonVisible" format="boolean"></attr>
+        <attr name="rightButtonImage" format="reference"></attr>
+        <attr name="rightButtonTextMode" format="boolean"></attr>
+        <attr name="rightButtonText" format="reference"></attr>
+        <attr name="stewardMode"></attr>
+        <attr name="alphaMode" format="boolean"></attr>
+        <attr name="chooseMode" format="boolean"></attr>
+    </declare-styleable>
+</resources>

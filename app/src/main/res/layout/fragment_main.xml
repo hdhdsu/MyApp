@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:aidaojia="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <com.xinguang.myapp.widget.TopGuideBar
+        android:id="@+id/top_guide_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        aidaojia:leftButtonVisible="true"
+        aidaojia:rightButtonVisible="false" />
+
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="首页"/>
+
+</LinearLayout>

@@ -2,14 +2,19 @@ package com.xinguang.myapp.fragment;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.xinguang.myapp.R;
+import com.xinguang.myapp.activity.GoogleSignInActivity;
+import com.xinguang.myapp.activity.NetActivity;
+import com.xinguang.myapp.activity.PermissionActivity;
 import com.xinguang.myapp.widget.TopGuideBar;
 
 /**
@@ -17,7 +22,7 @@ import com.xinguang.myapp.widget.TopGuideBar;
  */
 
 @SuppressLint("ValidFragment")
-public class FragmentMain extends Fragment {
+public class FragmentMain extends Fragment implements View.OnClickListener {
     private Context mContext;
     private TopGuideBar topGuideBar;
     private View view;
@@ -29,9 +34,37 @@ public class FragmentMain extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_main,container,false);
+        view = inflater.inflate(R.layout.fragment_main, container, false);
         topGuideBar = (TopGuideBar) view.findViewById(R.id.top_guide_bar);
         topGuideBar.setTitle("首页");
+
+        Button mBtNet = view.findViewById(R.id.study1);
+        Button mBtpermission = view.findViewById(R.id.study2);
+        Button mBtGoogleSignIn = view.findViewById(R.id.study3);
+        mBtNet.setOnClickListener(this);
+        mBtpermission.setOnClickListener(this);
+        mBtGoogleSignIn.setOnClickListener(this);
         return view;
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.study1:
+                //入坑retrofit
+                Intent intent1 = new Intent(mContext, NetActivity.class);
+                startActivity(intent1);
+                break;
+            case R.id.study2:
+                //android权限管理组件
+                Intent intent2 = new Intent(mContext, PermissionActivity.class);
+                startActivity(intent2);
+                break;
+            case R.id.study3:
+                //集成谷歌登陆
+                Intent intent3 = new Intent(mContext, GoogleSignInActivity.class);
+                startActivity(intent3);
+                break;
+        }
     }
 }

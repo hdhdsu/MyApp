@@ -1,5 +1,6 @@
 package com.xinguang.myapp.activity;
 
+import android.Manifest;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -17,15 +18,20 @@ import com.xinguang.myapp.net.MyLoaders;
 
 import java.util.List;
 
+import pub.devrel.easypermissions.EasyPermissions;
 import rx.functions.Action1;
+
+import static android.Manifest.permission.SEND_SMS;
 
 /**
  * 电影列表
  */
-public class MovieActivity extends AppCompatActivity implements View.OnClickListener{
+public class MovieActivity extends BaseActivity implements View.OnClickListener{
     private MyLoaders mMovieLoader;
     private RecyclerView mRecyclerView;
     private MovieAdapter mMovieAdapter;
+    //相机，发送短信权限
+    private String[] permissions = {Manifest.permission.CAMERA};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +41,7 @@ public class MovieActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void initView() {
+        requestPermission();
         Toolbar toolbar = (Toolbar) findViewById(R.id.main_toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +59,20 @@ public class MovieActivity extends AppCompatActivity implements View.OnClickList
         mRecyclerView.setAdapter(mMovieAdapter);
         getMovieList();
 
+    }
+
+    /**
+     * 请求相机的权限
+     */
+    private void requestPermission() {
+        if (EasyPermissions.hasPermissions(this, permissions)) {
+            Log.d("lenghuo","Already have permission, do the thing");
+        } else {
+            // Do not have permissions, request them now
+            Log.d("lenghuo","Do not have permissions, request them now");
+
+            EasyPermissions.requestPermissions(context, "111",1010, permissions);
+        }
     }
 
     /**

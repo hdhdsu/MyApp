@@ -8,5 +8,6 @@
     <color name="white">#ffffff</color>
     <color name="main">#ffd513</color>
     <color name="normal_text">#333333</color>
+    <color name="pop_selected">#ffae00</color>
 
 </resources>

@@ -16,7 +16,7 @@
        android:id="@+id/study1"
        android:layout_width="wrap_content"
        android:layout_height="45dp"
-       android:layout_marginTop="20dp"
+       android:layout_marginTop="5dp"
        android:layout_marginLeft="15dp"
        android:text="Retrofit框架"/>
 
@@ -24,7 +24,7 @@
         android:id="@+id/study2"
         android:layout_width="wrap_content"
         android:layout_height="45dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:layout_marginLeft="15dp"
         android:text="andoird权限管理"/>
 
@@ -32,8 +32,15 @@
         android:id="@+id/study3"
         android:layout_width="wrap_content"
         android:layout_height="45dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:layout_marginLeft="15dp"
         android:text="谷歌登陆"/>
+    <Button
+        android:id="@+id/study4"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+        android:text="底部弹窗"/>
 
 </LinearLayout>

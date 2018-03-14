@@ -10,12 +10,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.xinguang.myapp.R;
 import com.xinguang.myapp.activity.GoogleSignInActivity;
 import com.xinguang.myapp.activity.NetActivity;
 import com.xinguang.myapp.activity.PermissionActivity;
+import com.xinguang.myapp.widget.BottomPop;
 import com.xinguang.myapp.widget.TopGuideBar;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by 14912 on 2018/1/4.
@@ -41,6 +46,8 @@ public class FragmentMain extends Fragment implements View.OnClickListener {
         Button mBtNet = view.findViewById(R.id.study1);
         Button mBtpermission = view.findViewById(R.id.study2);
         Button mBtGoogleSignIn = view.findViewById(R.id.study3);
+        Button mBtBottomPop = view.findViewById(R.id.study4);
+        mBtBottomPop.setOnClickListener(this);
         mBtNet.setOnClickListener(this);
         mBtpermission.setOnClickListener(this);
         mBtGoogleSignIn.setOnClickListener(this);
@@ -64,6 +71,24 @@ public class FragmentMain extends Fragment implements View.OnClickListener {
                 //集成谷歌登陆
                 Intent intent3 = new Intent(mContext, GoogleSignInActivity.class);
                 startActivity(intent3);
+                break;
+            case R.id.study4:
+                List<String> arry = new ArrayList<>();
+                arry.add("11111111");
+                arry.add("2222222");
+                arry.add("33333333");
+                arry.add("444444444");
+                arry.add("55555555");
+                arry.add("66666666");
+
+                BottomPop pop = new BottomPop(mContext,"title","222",arry, new BottomPop.CallBack(){
+
+                    @Override
+                    public void click(int position) {
+
+                    }
+                });
+                pop.showPayMenus(view);
                 break;
         }
     }

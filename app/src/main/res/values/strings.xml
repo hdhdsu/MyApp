@@ -2,4 +2,6 @@
     <string name="app_name">MyApp</string>
     <string name="movie_list">电影列表</string>
     <string name="award_list">福利列表</string>
+    <string name="net_not_link">似乎已断开与互联网连接，请检查网络设置</string>
+    <string name="net_error">网络不给力</string>
 </resources>

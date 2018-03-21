@@ -7,5 +7,5 @@ package com.xinguang.myapp.common;
 
 public class Constants {
     public static final String BASE_URL = "https://api.douban.com/v2/movie/";
-    public static final String GANK_URL = "http://gank.io/api/data/福利/50/1";
+    public static final String GANK_URL = "http://gank.io/api/data/";
 }

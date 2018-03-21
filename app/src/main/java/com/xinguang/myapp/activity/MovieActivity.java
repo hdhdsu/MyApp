@@ -3,7 +3,6 @@ package com.xinguang.myapp.activity;
 import android.Manifest;
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -13,21 +12,19 @@ import android.view.View;
 import com.xinguang.myapp.R;
 import com.xinguang.myapp.adapter.MovieAdapter;
 import com.xinguang.myapp.model.Movie;
-import com.xinguang.myapp.net.ExceptionStatus;
-import com.xinguang.myapp.net.MyLoaders;
+import com.xinguang.myapp.http.ApiException;
+import com.xinguang.myapp.http.ApiManager;
 
 import java.util.List;
 
 import pub.devrel.easypermissions.EasyPermissions;
 import rx.functions.Action1;
 
-import static android.Manifest.permission.SEND_SMS;
-
 /**
  * 电影列表
  */
 public class MovieActivity extends BaseActivity implements View.OnClickListener{
-    private MyLoaders mMovieLoader;
+    private ApiManager mMovieLoader;
     private RecyclerView mRecyclerView;
     private MovieAdapter mMovieAdapter;
     //相机，发送短信权限
@@ -36,7 +33,7 @@ public class MovieActivity extends BaseActivity implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie);
-        mMovieLoader = new MyLoaders();
+        mMovieLoader = new ApiManager();
         initView();
     }
 
@@ -79,31 +76,10 @@ public class MovieActivity extends BaseActivity implements View.OnClickListener{
      * 获取电影列表
      */
     private void getMovieList(){
-        mMovieLoader.getMovie(0,10).subscribe(new Action1<List<Movie>>() {
-            @Override
-            public void call(List<Movie> movies) {
-                //onNext
-                mMovieAdapter.setMovies(movies);
-                mMovieAdapter.notifyDataSetChanged();
-            }
-        }, new Action1<Throwable>() {
-            @Override
-            public void call(Throwable throwable) {
-                //onError
-                Log.e("TAG","error message:"+throwable.getMessage());
-                if(throwable instanceof ExceptionStatus){
-                    ExceptionStatus fault = (ExceptionStatus) throwable;
-                    if(fault.getErrorCode() == 404){
-                        //错误处理
-                    }else if(fault.getErrorCode() == 500){
-                        //错误处理
-                    }else if(fault.getErrorCode() == 501){
-                        //错误处理
-                    }
-                }
-            }
+        ApiManager.getMovie(this,0,30,movieSubject -> {
+            mMovieAdapter.setMovies(movieSubject.subjects);
+            mMovieAdapter.notifyDataSetChanged();
         });
-
     }
 
 

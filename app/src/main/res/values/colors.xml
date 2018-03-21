@@ -9,5 +9,6 @@
     <color name="main">#ffd513</color>
     <color name="normal_text">#333333</color>
     <color name="pop_selected">#ffae00</color>
+    <color name="common_white">#ffffff</color>
 
 </resources>

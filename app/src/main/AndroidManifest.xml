@@ -17,6 +17,8 @@
     <!-- Optional for location -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_UPDATES" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -42,7 +44,9 @@
         <activity android:name=".activity.LaunchActivity" />
         <activity android:name=".activity.NetActivity" />
         <activity android:name=".activity.PermissionActivity" />
-        <activity android:name=".activity.GoogleSignInActivity"></activity>
+        <activity android:name=".activity.GoogleSignInActivity" />
+        <activity android:name=".activity.GlideActivity" />
+        <activity android:name=".activity.TouchActivity"></activity>
     </application>
 
 </manifest>

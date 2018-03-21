@@ -10,12 +10,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.xinguang.myapp.R;
+import com.xinguang.myapp.activity.GlideActivity;
 import com.xinguang.myapp.activity.GoogleSignInActivity;
 import com.xinguang.myapp.activity.NetActivity;
 import com.xinguang.myapp.activity.PermissionActivity;
+import com.xinguang.myapp.activity.TouchActivity;
 import com.xinguang.myapp.widget.BottomPop;
 import com.xinguang.myapp.widget.TopGuideBar;
 
@@ -31,6 +34,7 @@ public class FragmentMain extends Fragment implements View.OnClickListener {
     private Context mContext;
     private TopGuideBar topGuideBar;
     private View view;
+    private TextView mTvTouch;
 
     public FragmentMain(Context mContext) {
         this.mContext = mContext;
@@ -47,6 +51,15 @@ public class FragmentMain extends Fragment implements View.OnClickListener {
         Button mBtpermission = view.findViewById(R.id.study2);
         Button mBtGoogleSignIn = view.findViewById(R.id.study3);
         Button mBtBottomPop = view.findViewById(R.id.study4);
+        Button mGlide = view.findViewById(R.id.glide);
+        mTvTouch = view.findViewById(R.id.tv_touch);
+        mTvTouch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(mContext, TouchActivity.class));
+            }
+        });
+        mGlide.setOnClickListener(this);
         mBtBottomPop.setOnClickListener(this);
         mBtNet.setOnClickListener(this);
         mBtpermission.setOnClickListener(this);
@@ -72,7 +85,7 @@ public class FragmentMain extends Fragment implements View.OnClickListener {
                 Intent intent3 = new Intent(mContext, GoogleSignInActivity.class);
                 startActivity(intent3);
                 break;
-            case R.id.study4:
+            case R.id.study4://底部弹窗
                 List<String> arry = new ArrayList<>();
                 arry.add("11111111");
                 arry.add("2222222");
@@ -89,6 +102,10 @@ public class FragmentMain extends Fragment implements View.OnClickListener {
                     }
                 });
                 pop.showPayMenus(view);
+                break;
+            case R.id.glide:
+                Intent intentGlide = new Intent(mContext,GlideActivity.class);
+                startActivity(intentGlide);
                 break;
         }
     }

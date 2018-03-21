@@ -26,4 +26,17 @@ public class Movie {
         public String large;
         public String medium;
     }
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "rating=" + rating +
+                ", title='" + title + '\'' +
+                ", collect_count='" + collect_count + '\'' +
+                ", original_title='" + original_title + '\'' +
+                ", subtype='" + subtype + '\'' +
+                ", year='" + year + '\'' +
+                ", images=" + images +
+                '}';
+    }
 }

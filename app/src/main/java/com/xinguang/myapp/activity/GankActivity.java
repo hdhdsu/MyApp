@@ -12,7 +12,7 @@ import android.view.View;
 import com.xinguang.myapp.R;
 import com.xinguang.myapp.adapter.GanKAdapter;
 import com.xinguang.myapp.model.GankEntry;
-import com.xinguang.myapp.net.MyLoaders;
+import com.xinguang.myapp.http.ApiManager;
 
 import java.util.List;
 
@@ -24,14 +24,14 @@ import rx.functions.Action1;
  */
 
 public class GankActivity extends BaseActivity {
-    private MyLoaders mGankLoader;
+    private ApiManager mGankLoader;
     private RecyclerView mRecyuclerView;
     private GanKAdapter mAdapter;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gank_activity);
-        mGankLoader = new MyLoaders();
+        mGankLoader = new ApiManager();
         initView();
         getGankList();
     }
@@ -56,21 +56,10 @@ public class GankActivity extends BaseActivity {
 
 
     private void getGankList(){
-        Subscription subscription = mGankLoader.getGankList().subscribe(new Action1<List<GankEntry>>() {
-            @Override
-            public void call(List<GankEntry> gankEntries) {
-                Log.i("FK","gank size:"+gankEntries.size());
-                mAdapter.setData(gankEntries);
+        ApiManager.getGirl(this,gankResp -> {
+            mAdapter.setData(gankResp);
                 mAdapter.notifyDataSetChanged();
-            }
-        }, new Action1<Throwable>() {
-            @Override
-            public void call(Throwable throwable) {
-                throwable.printStackTrace();
-            }
         });
-
-        addSubscription(subscription);
     }
 
     public static class MyItemDecoration extends RecyclerView.ItemDecoration{

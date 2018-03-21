@@ -31,7 +31,7 @@ public class ApiManager{
         Api.getInstance().getApiService()
                 .getGank()
                 .compose(RxUtils.rxNet())
-                .subscribe(new BaseSubscriber<List<GankEntry>>(activity, mCallback,true));
+                .subscribe(new BaseSubscriber<>(activity, mCallback,true));
     }
 //    /**
 //     * 获取电影列表
